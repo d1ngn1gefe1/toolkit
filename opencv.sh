@@ -1,16 +1,29 @@
 #!/bin/sh
 
-apt-get -y install libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev
-apt-get -y install qtbase5-dev
-apt-get -y install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-apt-get -y install libgtk2.0-dev
-apt-get -y install libatlas-base-dev gfortran
-apt-get -y install libhdf5-serial-dev
+#apt-get -y install build-essential cmake git
+#apt-get -y install pkg-config unzip ffmpeg qtbase5-dev python-dev python3-dev python-numpy python3-numpy
+#apt-get -y install libopencv-dev libgtk-3-dev libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev
+#apt-get -y install libavcodec-dev libavformat-dev libswscale-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
+#apt-get -y install libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev
+#apt-get -y install libvorbis-dev libxvidcore-dev v4l-utils python-vtk
+#apt-get -y install liblapacke-dev libopenblas-dev checkinstall
+#apt-get -y install libgdal-dev
 
-apt-get -y install build-essential
-apt-get -y install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-apt-get -y install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
-apt-get -y install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
-apt-get -y install libxvidcore-dev libx264-dev
-apt-get -y install libatlas-base-dev gfortran
-apt-get -y install ffmpeg
+#cd ~/downloads
+#wget -O opencv.zip https://github.com/opencv/opencv/archive/3.2.0.zip
+#wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.2.0.zip
+#unzip opencv.zip -d ~/downloads/opencv
+#unzip opencv_contrib.zip -d ~/downloads/opencv_contrib
+
+cd ~/downloads/opencv
+mkdir build
+cd build
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+	  -D CMAKE_INSTALL_PREFIX=/usr/local \
+	  -D INSTALL_C_EXAMPLES=ON \
+	  -D INSTALL_PYTHON_EXAMPLES=ON \
+	  -D OPENCV_EXTRA_MODULES_PATH=~/downloads/opencv_contrib/modules \
+	  -D BUILD_EXAMPLES=ON ..
+make -j32
+sudo make install
+sudo ldconfig
