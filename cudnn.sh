@@ -8,3 +8,6 @@ cp */*.h /usr/local/cuda/include/
 cp */libcudnn* /usr/local/cuda/lib64/
 chmod a+r /usr/local/cuda/lib64/libcudnn*
 cd /home/luoa
+
+mv /usr/local/cuda-8.0/targets/x86_64-linux/lib/libcudnn.so.6 /usr/local/cuda-8.0/targets/x86_64-linux/lib/libcudnn.so.6.org
+ln -s /usr/local/cuda-8.0/targets/x86_64-linux/lib/libcudnn.so.6.0.21 /usr/local/cuda-8.0/targets/x86_64-linux/lib/libcudnn.so.6

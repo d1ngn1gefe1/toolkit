@@ -12,11 +12,13 @@ apt-get -y install libgdal-dev
 cd ~/downloads
 wget -O opencv.zip https://github.com/opencv/opencv/archive/3.2.0.zip
 wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/3.2.0.zip
-unzip opencv.zip -d ~/downloads/opencv
-unzip opencv_contrib.zip -d ~/downloads/opencv_contrib
+unzip opencv.zip
+unzip opencv_contrib.zip
+mv opencv-3.2.0 opencv
+mv opencv_contrib-3.2.0 opencv_contrib
 
 cd ~/downloads/opencv
-mkdir build
+mkdir ~/downloads/opencv/build
 cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	  -D CMAKE_INSTALL_PREFIX=/usr/local \
