@@ -11,3 +11,5 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 apt-get update
 apt-get -y install gcsfuse
 apt-get update && apt-get upgrade
+
+gcsfuse bitsbucket /mnt/bucket
