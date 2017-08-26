@@ -14,3 +14,5 @@ sh ./cudnn.sh
 sh ./python.sh
 sh ./opencv.sh
 sh ./pytorch.sh
+
+sh ./conda.sh
