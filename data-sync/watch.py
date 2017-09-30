@@ -16,8 +16,8 @@ class MyHandler(FileSystemEventHandler):
     src = self.src_path
     for remote_host in self.remote_hosts:
       dst = '{}:{}'.format(remote_host, self.dst_path)
-      subprocess.Popen(['rsync', '-arz', '--delete', '--exclude-from', 'ignore.txt', src, dst],
-                       stdout=DEVNULL, stderr=STDOUT)
+      subprocess.Popen(['rsync', '-arz', '--delete', '--exclude-from', 'ignore.txt', src, dst])
+                       #,stdout=DEVNULL, stderr=STDOUT)
 
   def on_modified(self, event):
     print('modified: ', event.src_path)
