@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sh ./basics.sh
+sh ./swap.sh
 
 sh ./hdd-persistent.sh
 sh ./ssd-persistent.sh
